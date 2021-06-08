@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
   ${variables};
 
   html {
-    font-size: 16px;
+    font-size: 62.5%; // If default font size is 16px, then 1rem = 10px
     box-sizing: border-box;
   }
 
