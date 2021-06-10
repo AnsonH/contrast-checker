@@ -16,9 +16,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
+    font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -31,8 +29,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
-    cursor: pointer;
     border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
     outline: none;
   }
 `;
