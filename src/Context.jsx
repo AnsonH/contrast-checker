@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
 import { defaultColors } from "./styles/theme";
 import { colord } from "colord";
+import PropTypes from "prop-types";
 
 const Context = createContext();
 
-export function ContextProvider(props) {
+function ContextProvider(props) {
   const [background, setBackground] = useState({
     rgb: colord(defaultColors.background).toRgb(), // eg. { r: 19, g: 42, b: 49, a: 1 }
     input: defaultColors.background, // eg. "#132A31"
@@ -28,3 +29,9 @@ export function ContextProvider(props) {
 
   return <Context.Provider value={data}>{props.children}</Context.Provider>;
 }
+
+ContextProvider.propTypes = {
+  children: PropTypes.node,
+};
+
+export { Context as default, ContextProvider };
