@@ -20,9 +20,23 @@ function ContextProvider(props) {
   });
   const [savedColors, setSavedColors] = useState(JSON.parse(window.localStorage.getItem("colors")) ?? []);
 
+  const updateBackground = (colorStateObj) => {
+    const hex = colord(colorStateObj.rgb).toHex();
+    setBackground(colorStateObj);
+    document.documentElement.style.setProperty("--background", hex);
+  };
+
+  const updateForeground = (colorStateObj) => {
+    const hex = colord(colorStateObj.rgb).toHex();
+    setForeground(colorStateObj);
+    document.documentElement.style.setProperty("--text", hex);
+  };
+
   const data = {
     background,
+    updateBackground,
     foreground,
+    updateForeground,
     savedColors,
     setSavedColors,
   };
