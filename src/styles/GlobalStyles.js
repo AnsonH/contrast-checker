@@ -23,6 +23,13 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  h2 {
+    margin: 0;
+    color: white;
+    font-size: 2.6rem;
+    font-weight: 600;
+  }
+
   button {
     cursor: pointer;
     border: none;
