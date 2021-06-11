@@ -7,7 +7,6 @@ const Container = styled.div`
 `;
 
 const Text = styled.p`
-  margin: 0;
   color: var(--foreground);
 `;
 

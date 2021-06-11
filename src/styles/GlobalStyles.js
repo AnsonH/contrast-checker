@@ -29,15 +29,19 @@ const GlobalStyles = createGlobalStyle`
     text-align: center;
 
     @media (max-width: ${bp.md}) {
-      font-size: 3.4rem;
+      font-size: 3.8rem;
     }
   }
 
   h2 {
     margin: 0;
-    color: white;
+    color: var(--white);
     font-size: 2.6rem;
     font-weight: 600;
+  }
+
+  p {
+    margin: 0;
   }
 
   button {

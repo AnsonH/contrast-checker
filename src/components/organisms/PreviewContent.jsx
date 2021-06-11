@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { MdOpenInNew } from "react-icons/md";
 import OutlineButton from "../atoms/OutlineButton";
+import ContrastRatio from "../molecules/ContrastRatio";
 import PreviewText from "../molecules/PreviewText";
 import { bp } from "../../styles/breakpoints";
 
@@ -34,6 +35,7 @@ const Results = styled.div`
   }
 
   @media (max-width: ${bp.md}) {
+    padding: 2rem;
     flex-direction: column;
   }
 `;
@@ -64,7 +66,9 @@ export default function PreviewContent() {
   return (
     <Container>
       <h1>Color Contrast Checker</h1>
-      <Results></Results>
+      <Results>
+        <ContrastRatio />
+      </Results>
       <Preview>
         <PreviewText largeText title="Large Text - 24px/18pt">
           Contrast ratio is a measure of the difference in perceived brightness between two colors. The higher the
