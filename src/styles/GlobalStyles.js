@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import variables from "./variables";
+import { bp } from "./breakpoints";
 
 const GlobalStyles = createGlobalStyle`
   ${variables};
@@ -19,6 +20,17 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    margin: 0 0 4.5rem;
+    color: var(--foreground);
+    font-size: 4.6rem;
+    text-align: center;
+
+    @media (max-width: ${bp.md}) {
+      font-size: 3.4rem;
+    }
   }
 
   h2 {

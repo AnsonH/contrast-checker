@@ -8,11 +8,13 @@ const Button = styled.button`
   align-items: center;
   gap: 0.8rem;
   background: none;
-  border: 1px solid ${(props) => props.color};
+  border: 1px solid ${(props) => props.foreground};
   border-radius: 0.5rem;
-  color: ${(props) => props.color};
+  color: ${(props) => props.foreground};
+  cursor: pointer;
   font-weight: 600;
   font-size: 1.6rem;
+  text-decoration: none;
   transition: 150ms ease-in-out;
 
   &:hover,
@@ -21,9 +23,18 @@ const Button = styled.button`
   }
 `;
 
-function OutlineButton({ children, color, hoverColor, icon }) {
+function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon }) {
+  // Additional props if we cast the button into an anchor tag
+  const anchorProps = anchor
+    ? {
+        as: "a",
+        href: hrefLink,
+        target: "_blank",
+      }
+    : {};
+
   return (
-    <Button color={color} hoverColor={hoverColor} hasIcon={icon !== undefined}>
+    <Button {...anchorProps} foreground={color} hoverColor={hoverColor} hasIcon={icon !== undefined}>
       {icon}
       <span>{children}</span>
     </Button>
@@ -31,15 +42,17 @@ function OutlineButton({ children, color, hoverColor, icon }) {
 }
 
 OutlineButton.propTypes = {
+  anchor: PropTypes.bool,
   children: PropTypes.string,
   color: PropTypes.string,
   hoverColor: PropTypes.string,
+  hrefLink: PropTypes.string,
   icon: PropTypes.node,
 };
 
 OutlineButton.defaultProps = {
+  anchor: false,
   color: "var(--white)",
-  hoverColor: "var(--white-hover)",
 };
 
 export default OutlineButton;

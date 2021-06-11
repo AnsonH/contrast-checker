@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ContextProvider } from "./Context";
 import SavedColors from "./components/organisms/SavedColors";
+import PreviewContent from "./components/organisms/PreviewContent";
 import GlobalStyles from "./styles/GlobalStyles";
 import { bp } from "./styles/breakpoints";
 
@@ -32,28 +33,18 @@ const ColorControl = styled.div`
   }
 `;
 
-const Preview = styled.div`
+const PreviewArea = styled.div`
   width: 70%;
   min-height: 100vh;
-  padding: 6rem 0;
+  padding: 3.5rem;
   order: 2;
   background-color: var(--background);
 
   @media (max-width: ${bp.lg}) {
     min-height: auto;
     width: 100%;
-    padding: 4.5rem 6vw;
+    padding: 3rem 6vw 4.5rem;
     order: 1;
-  }
-`;
-
-const PreviewContent = styled.div`
-  max-width: 75rem;
-  margin: 0 auto;
-
-  @media (max-width: ${bp.lg}) {
-    max-width: none;
-    width: 100%;
   }
 `;
 
@@ -65,9 +56,9 @@ export default function App() {
         <ColorControl>
           <SavedColors />
         </ColorControl>
-        <Preview>
-          <PreviewContent></PreviewContent>
-        </Preview>
+        <PreviewArea>
+          <PreviewContent />
+        </PreviewArea>
       </Container>
     </ContextProvider>
   );
