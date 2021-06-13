@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ContextProvider } from "./Context";
+import ColorInputs from "./components/organisms/ColorInputs";
 import SavedColors from "./components/organisms/SavedColors";
 import PreviewContent from "./components/organisms/PreviewContent";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -54,6 +55,7 @@ export default function App() {
       <GlobalStyles />
       <Container>
         <ColorControl>
+          <ColorInputs />
           <SavedColors />
         </ColorControl>
         <PreviewArea>

@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
+    color: var(--white);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -35,7 +36,6 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     margin: 0;
-    color: var(--white);
     font-size: 2.6rem;
     font-weight: 600;
   }

@@ -87,7 +87,7 @@ export default function PreviewContent() {
             color="var(--foreground)"
             icon={<MdOpenInNew size={18} />}
           >
-            WCGA 2.0
+            WCAG 2.0
           </OutlineButton>
           <OutlineButton
             anchor
