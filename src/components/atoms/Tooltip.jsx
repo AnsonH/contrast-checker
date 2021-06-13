@@ -54,11 +54,11 @@ const ChildrenWrapper = styled.span`
 
 // `children` - Component that triggers the tooltip
 // `wrapperStyles` - Styles applied to the wrapper that holds the trigger element
-function Tooltip({ children, content, wrapperStyles = {}, ...tippyProps }) {
+function Tooltip({ children, content, wrapperStyles = {}, tooltipBoxStyles = {}, ...tippyProps }) {
   return (
     <Tippy
       render={(attrs) => (
-        <TooltipBox {...attrs}>
+        <TooltipBox {...attrs} style={tooltipBoxStyles}>
           {content}
           <Arrow id="arrow" data-popper-arrow="" />
         </TooltipBox>
@@ -73,6 +73,7 @@ function Tooltip({ children, content, wrapperStyles = {}, ...tippyProps }) {
 Tooltip.propTypes = {
   children: PropTypes.node,
   content: PropTypes.node,
+  tooltipBoxStyles: PropTypes.object,
   wrapperStyles: PropTypes.object,
 };
 

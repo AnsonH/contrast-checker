@@ -36,6 +36,7 @@ const GlobalStyles = createGlobalStyle`
 
   h2 {
     margin: 0;
+    color: var(--gray);
     font-size: 2.6rem;
     font-weight: 600;
   }

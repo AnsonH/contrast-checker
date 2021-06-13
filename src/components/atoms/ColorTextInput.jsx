@@ -6,7 +6,7 @@ import Context from "../../Context";
 
 const Input = styled.input`
   width: 85%;
-  padding: 0.5rem 0.8rem 0.5rem 5.5rem;
+  padding: 0.5rem 0.8rem 0.5rem 5.2rem;
 
   background: var(--black);
   border: 1px solid var(--gray);
@@ -50,7 +50,7 @@ function ColorTextInput({ target }) {
 }
 
 ColorTextInput.propTypes = {
-  target: PropTypes.oneOf(["background", "foreground"]),
+  target: PropTypes.oneOf(["background", "foreground"]).isRequired,
 };
 
 export default ColorTextInput;
