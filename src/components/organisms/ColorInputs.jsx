@@ -1,8 +1,12 @@
 import styled from "styled-components";
+import SwapButton from "../atoms/SwapButton";
+import ColorInputField from "../molecules/ColorInputField";
 import InputLabel from "../molecules/InputLabel";
 
 const Container = styled.div`
   width: 100%;
+  max-width: 35rem;
+  padding-bottom: 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +24,12 @@ export default function ColorInputs() {
     <Container>
       <ColorInputBlock>
         <InputLabel title="Background" labelFor="background" tooltipText="Accepts HEX, RGB & HSL" />
+        <ColorInputField target="background" />
+      </ColorInputBlock>
+      <SwapButton />
+      <ColorInputBlock>
+        <InputLabel title="Foreground" labelFor="foreground" tooltipText="Accepts HEX, RGB & HSL" />
+        <ColorInputField target="foreground" />
       </ColorInputBlock>
     </Container>
   );

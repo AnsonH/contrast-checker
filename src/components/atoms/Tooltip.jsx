@@ -49,11 +49,12 @@ const Arrow = styled.div`
 // https://github.com/atomiks/tippyjs-react#component-children
 const ChildrenWrapper = styled.span`
   display: inline-block;
-  height: 1.8rem;
+  height: max-content;
 `;
 
-// `children` is the component that activates the tooltip
-function Tooltip({ children, content, ...tippyProps }) {
+// `children` - Component that triggers the tooltip
+// `wrapperStyles` - Styles applied to the wrapper that holds the trigger element
+function Tooltip({ children, content, wrapperStyles = {}, ...tippyProps }) {
   return (
     <Tippy
       render={(attrs) => (
@@ -64,7 +65,7 @@ function Tooltip({ children, content, ...tippyProps }) {
       )}
       {...tippyProps}
     >
-      <ChildrenWrapper>{children}</ChildrenWrapper>
+      <ChildrenWrapper style={wrapperStyles}>{children}</ChildrenWrapper>
     </Tippy>
   );
 }
@@ -72,6 +73,7 @@ function Tooltip({ children, content, ...tippyProps }) {
 Tooltip.propTypes = {
   children: PropTypes.node,
   content: PropTypes.node,
+  wrapperStyles: PropTypes.object,
 };
 
 export default Tooltip;
