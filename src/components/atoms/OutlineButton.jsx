@@ -30,6 +30,7 @@ function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon }) 
         as: "a",
         href: hrefLink,
         target: "_blank",
+        rel: "noreferrer",
       }
     : {};
 

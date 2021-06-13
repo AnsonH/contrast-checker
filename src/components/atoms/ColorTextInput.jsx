@@ -46,7 +46,7 @@ function ColorTextInput({ target }) {
     isBackground ? updateBackground(newState) : updateForeground(newState);
   };
 
-  return <Input type="text" value={color.input} onChange={(event) => handleInputChange(event)} />;
+  return <Input type="text" id={target} value={color.input} onChange={(event) => handleInputChange(event)} />;
 }
 
 ColorTextInput.propTypes = {

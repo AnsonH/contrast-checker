@@ -41,7 +41,7 @@ export default function SwapButton() {
       offset={[0, 15]}
       wrapperStyles={{ margin: "2.2rem 15% 2.2rem 0" }}
     >
-      <Button>
+      <Button aria-label="Swap colors">
         <MdSwapVert size={28} onClick={handleSwap} />
       </Button>
     </Tooltip>
