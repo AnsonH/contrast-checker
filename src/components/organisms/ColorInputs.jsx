@@ -17,6 +17,10 @@ const ColorInputBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  &:last-child {
+    margin-bottom: 3.5rem;
+  }
 `;
 
 export default function ColorInputs() {

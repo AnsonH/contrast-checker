@@ -43,7 +43,7 @@ export default function SwapButton() {
   return (
     <Tooltip
       content={<TooltipText>Swap colors</TooltipText>}
-      trigger="mouseover focusin"
+      trigger="mouseenter focusin"
       placement="right"
       offset={[0, 15]}
       touch={false}

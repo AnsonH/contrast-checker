@@ -25,7 +25,11 @@ function InputLabel({ labelFor, title, tooltipText }) {
     <Container>
       <Label htmlFor={labelFor}>{title}</Label>
       {tooltipText !== undefined ? (
-        <Tooltip placement="right" content={<TooltipText>{tooltipText}</TooltipText>}>
+        <Tooltip
+          placement="right"
+          content={<TooltipText>{tooltipText}</TooltipText>}
+          wrapperStyles={{ height: "1.8rem" }}
+        >
           <MdInfoOutline size={18} />
         </Tooltip>
       ) : null}
