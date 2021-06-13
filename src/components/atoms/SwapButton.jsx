@@ -14,10 +14,16 @@ const Button = styled.button`
   border: 1px solid var(--white);
   border-radius: 2rem;
   color: var(--white);
+  font-size: 0rem; // Bug fix: Arrow appear to small on mobile devices
   transition: 150ms ease-in-out;
 
   &:hover {
     background-color: var(--white-hover);
+  }
+
+  &:focus {
+    border: 1px solid var(--cyan);
+    outline: 1px solid var(--cyan);
   }
 `;
 
@@ -37,8 +43,10 @@ export default function SwapButton() {
   return (
     <Tooltip
       content={<TooltipText>Swap colors</TooltipText>}
+      trigger="mouseover focusin"
       placement="right"
       offset={[0, 15]}
+      touch={false}
       wrapperStyles={{ margin: "2.2rem 15% 2.2rem 0" }}
     >
       <Button aria-label="Swap colors">
