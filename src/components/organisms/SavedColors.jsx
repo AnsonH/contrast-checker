@@ -4,15 +4,10 @@ import OutlineButton from "../atoms/OutlineButton";
 import { bp } from "../../styles/breakpoints";
 
 const Container = styled.div`
-  border-top: 1px solid var(--dark-gray);
   padding-top: 1rem;
 
-  @media (max-width: ${bp.lg}) {
-    border-top: none;
-  }
-
-  @media (max-width: ${bp.md}) {
-    border-top: 1px solid var(--dark-gray);
+  @media (min-width: ${bp.md}) and (max-width: ${bp.lg}) {
+    padding-top: 0;
   }
 `;
 

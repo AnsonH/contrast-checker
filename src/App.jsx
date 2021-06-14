@@ -20,6 +20,8 @@ const ColorControl = styled.div`
   min-height: 100vh;
   order: 1;
   padding: 4rem 4rem 3rem;
+  display: flex;
+  flex-direction: column;
   background-color: var(--black);
   border-right: 1px solid var(--dark-gray);
   border-top: none;
@@ -29,8 +31,25 @@ const ColorControl = styled.div`
     width: 100%;
     padding: 4.5rem 6vw 3rem;
     order: 2;
+    flex-direction: row;
+    justify-content: space-between;
     border-right: none;
     border-top: 1px solid var(--dark-gray);
+  }
+
+  @media (max-width: ${bp.md}) {
+    flex-direction: column;
+  }
+`;
+
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: var(--dark-gray);
+
+  @media (min-width: ${bp.md}) and (max-width: ${bp.lg}) {
+    width: 1px;
+    height: auto;
   }
 `;
 
@@ -56,6 +75,7 @@ export default function App() {
       <Container>
         <ColorControl>
           <ColorInputs />
+          <Divider />
           <SavedColors />
         </ColorControl>
         <PreviewArea>

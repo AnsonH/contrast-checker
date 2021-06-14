@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SwapButton from "../atoms/SwapButton";
 import ColorInputField from "../molecules/ColorInputField";
 import InputLabel from "../molecules/InputLabel";
+import { bp } from "../../styles/breakpoints";
 
 const Container = styled.div`
   width: 100%;
@@ -10,6 +11,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: ${bp.md}) and (max-width: ${bp.lg}) {
+    max-width: 32rem;
+  }
 `;
 
 const ColorInputBlock = styled.div`
@@ -20,6 +25,10 @@ const ColorInputBlock = styled.div`
 
   &:last-child {
     margin-bottom: 3.5rem;
+
+    @media (min-width: ${bp.md}) and (max-width: ${bp.lg}) {
+      margin-bottom: 0;
+    }
   }
 `;
 
