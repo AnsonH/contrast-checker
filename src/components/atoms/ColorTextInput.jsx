@@ -9,17 +9,27 @@ const Input = styled.input`
   padding: 0.5rem 0.8rem 0.5rem 5.2rem;
 
   background: var(--black);
-  border: 1px solid var(--gray);
+  border: none; // Use box-shadow for border instead
+  box-shadow: 0 0 0 1px ${(props) => (props.valid ? "var(--gray)" : "var(--light-red)")};
   border-radius: 0.5rem;
   color: var(--white);
   font-family: var(--font-sans);
   font-size: 2.5rem;
   font-weight: 600;
+  -webkit-appearance: none; // Fix iOS appearance bugs
 
   &:focus {
-    outline: 1px solid var(--cyan);
-    border: 1px solid var(--cyan);
+    outline: none;
+    box-shadow: 0 0 0 2px ${(props) => (props.valid ? "var(--cyan)" : "var(--light-red)")};
   }
+`;
+
+const HelperText = styled.p`
+  position: absolute;
+  bottom: -2rem;
+  color: var(--light-red);
+  font-size: 1.4rem;
+  visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
 function ColorTextInput({ target }) {
@@ -27,6 +37,7 @@ function ColorTextInput({ target }) {
 
   const isBackground = target === "background";
   const color = isBackground ? background : foreground;
+  let validInput = color.validInput;
 
   const handleInputChange = (event) => {
     const input = event.target.value;
@@ -34,19 +45,30 @@ function ColorTextInput({ target }) {
 
     let rgb = inputColor.toRgb();
     let inputFormat = getFormat(input);
-    let isInputValid = inputColor.isValid();
+    validInput = inputColor.isValid();
 
     // Use values from the original color state if input is invalid
-    if (!isInputValid) {
+    if (!validInput) {
       rgb = color.rgb;
       inputFormat = color.inputFormat;
     }
 
-    const newState = { rgb, input, inputFormat, isInputValid };
+    const newState = { rgb, input, inputFormat, validInput };
     isBackground ? updateBackground(newState) : updateForeground(newState);
   };
 
-  return <Input type="text" id={target} value={color.input} onChange={(event) => handleInputChange(event)} />;
+  return (
+    <>
+      <Input
+        type="text"
+        id={target}
+        value={color.input}
+        onChange={(event) => handleInputChange(event)}
+        valid={validInput}
+      />
+      <HelperText visible={!validInput}>Invalid input</HelperText>
+    </>
+  );
 }
 
 ColorTextInput.propTypes = {

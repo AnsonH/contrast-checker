@@ -6,7 +6,7 @@ import InputLabel from "../molecules/InputLabel";
 const Container = styled.div`
   width: 100%;
   max-width: 35rem;
-  padding-bottom: 3.5rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;

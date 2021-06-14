@@ -19,7 +19,7 @@ const ColorControl = styled.div`
   width: 30%;
   min-height: 100vh;
   order: 1;
-  padding: 5rem 4rem 3rem;
+  padding: 4rem 4rem 3rem;
   background-color: var(--black);
   border-right: 1px solid var(--dark-gray);
   border-top: none;

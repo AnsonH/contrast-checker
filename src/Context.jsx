@@ -10,13 +10,13 @@ function ContextProvider(props) {
     rgb: colord(defaultColors.background).toRgb(), // eg. { r: 19, g: 42, b: 49, a: 1 }
     input: defaultColors.background, // eg. "#132A31"
     inputFormat: "hex",
-    isInputValid: true,
+    validInput: true,
   });
   const [foreground, setForeground] = useState({
     rgb: colord(defaultColors.foreground).toRgb(),
     input: defaultColors.foreground,
     inputFormat: "hex",
-    isInputValid: true,
+    validInput: true,
   });
   const [savedColors, setSavedColors] = useState(JSON.parse(window.localStorage.getItem("colors")) ?? []);
 

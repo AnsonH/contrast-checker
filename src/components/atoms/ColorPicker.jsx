@@ -11,12 +11,14 @@ const PickerButton = styled.button`
   width: 3rem;
   height: 3rem;
   background: ${(props) => (props.target === "background" ? "var(--background)" : "var(--foreground)")};
-  border: 1px solid var(--gray);
+  border: none; // Use box-shadow for border instead
+  box-shadow: 0 0 0 1px var(--gray);
   border-radius: 0.5rem;
+  -webkit-appearance: none; // Fix iOS appearance bugs
 
   &:focus {
-    border: 1px solid var(--cyan);
-    outline: 1px solid var(--cyan);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--cyan);
   }
 `;
 
@@ -51,7 +53,7 @@ function ColorPicker({ target }) {
     const inputValue = getColorString(colord(color), inputFormat);
 
     // No error validation is needed if we use color picker
-    const newState = { rgb: color, input: inputValue, inputFormat, isInputValid: true };
+    const newState = { rgb: color, input: inputValue, inputFormat, validInput: true };
     isBackground ? updateBackground(newState) : updateForeground(newState);
   };
 

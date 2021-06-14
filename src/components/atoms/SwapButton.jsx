@@ -11,19 +11,21 @@ const Button = styled.button`
   align-items: center;
   justify-content: center;
   background: none;
-  border: 1px solid var(--white);
+  border: none; // Use box-shadow for border instead
+  box-shadow: 0 0 0 1px var(--white);
   border-radius: 2rem;
   color: var(--white);
   font-size: 0rem; // Bug fix: Arrow appear to small on mobile devices
   transition: 150ms ease-in-out;
+  -webkit-appearance: none; // Fix iOS appearance bugs
 
   &:hover {
     background-color: var(--white-hover);
   }
 
   &:focus {
-    border: 1px solid var(--cyan);
-    outline: 1px solid var(--cyan);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--cyan);
   }
 `;
 

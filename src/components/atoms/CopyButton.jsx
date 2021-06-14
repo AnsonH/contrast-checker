@@ -7,7 +7,7 @@ import Context from "../../Context";
 import Tooltip from "./Tooltip";
 
 const Button = styled.button`
-  padding: 1rem;
+  padding: 0.8rem;
   background: none;
   color: var(--gray);
   transition: 150ms color ease-out;
@@ -39,7 +39,7 @@ function CopyButton({ target }) {
       hideOnClick={false}
       wrapperStyles={{ marginTop: "0.5rem", marginLeft: "auto" }}
     >
-      <Button onClick={handleClick}>
+      <Button onClick={handleClick} aria-label="Copy to clipboard">
         <MdContentCopy size={24} />
       </Button>
     </Tooltip>

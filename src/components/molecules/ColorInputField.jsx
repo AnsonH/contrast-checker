@@ -6,7 +6,7 @@ import CopyButton from "../atoms/CopyButton";
 
 const Container = styled.div`
   width: 100%;
-  margin-bottom: 0.4rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
