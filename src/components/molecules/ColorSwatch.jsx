@@ -36,8 +36,6 @@ function ColorSwatch() {
     window.localStorage.setItem("colors", JSON.stringify(newSavedColors));
   };
 
-  console.log("ColorSwatch render");
-
   return (
     <Container>
       {savedColors.map((color) => (
