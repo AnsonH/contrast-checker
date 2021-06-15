@@ -23,7 +23,7 @@ const Button = styled.button`
   }
 `;
 
-function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon }) {
+function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon, onClickEvent }) {
   // Additional props if we cast the button into an anchor tag
   const anchorProps = anchor
     ? {
@@ -35,7 +35,13 @@ function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon }) 
     : {};
 
   return (
-    <Button {...anchorProps} foreground={color} hoverColor={hoverColor} hasIcon={icon !== undefined}>
+    <Button
+      {...anchorProps}
+      foreground={color}
+      hoverColor={hoverColor}
+      hasIcon={icon !== undefined}
+      onClick={onClickEvent}
+    >
       {icon}
       <span>{children}</span>
     </Button>
@@ -49,6 +55,7 @@ OutlineButton.propTypes = {
   hoverColor: PropTypes.string,
   hrefLink: PropTypes.string,
   icon: PropTypes.node,
+  onClickEvent: PropTypes.func,
 };
 
 OutlineButton.defaultProps = {

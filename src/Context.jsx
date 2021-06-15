@@ -32,6 +32,16 @@ function ContextProvider(props) {
     document.documentElement.style.setProperty("--foreground", hex);
   };
 
+  const updateSavedColor = (colorArray) => {
+    setSavedColors(colorArray);
+    window.localStorage.setItem("colors", JSON.stringify(colorArray));
+  };
+
+  const saveCurrentColor = () => {
+    const newSavedColors = [...savedColors, { background, foreground, time: Date.now() }];
+    updateSavedColor(newSavedColors);
+  };
+
   const data = {
     background,
     updateBackground,
@@ -39,6 +49,8 @@ function ContextProvider(props) {
     updateForeground,
     savedColors,
     setSavedColors,
+    updateSavedColor,
+    saveCurrentColor,
   };
 
   return <Context.Provider value={data}>{props.children}</Context.Provider>;

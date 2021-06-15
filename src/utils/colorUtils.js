@@ -1,6 +1,7 @@
+import { colord } from "colord";
+
 /**
- * Gets the string representation of the color according to the given color format.
- *
+ * Get the string representation of the color according to the given color format.
  * @param {Colord} color Input color object
  * @param {import("colord/types").Format} [format] The color format for the output
  * @returns {string}  String representation of the color
@@ -25,4 +26,13 @@ export function getColorString(color, format) {
   }
 
   return output;
+}
+
+/**
+ * Convert a RGB object into a string
+ * @param {{r: number, g: number, b: number}} rgbColor Input color object
+ * @returns {string}
+ */
+export function getRgbString(rgbColor) {
+  return colord(rgbColor).toRgbString();
 }
