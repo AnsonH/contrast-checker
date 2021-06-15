@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { MdSave, MdDelete } from "react-icons/md";
-import OutlineButton from "../atoms/OutlineButton";
-import ColorContext from "../../context/ColorContext";
+import DeleteAllButton from "../atoms/DeleteAllButton";
+import SaveButton from "../atoms/SaveButton";
 
 const ButtonGroup = styled.div`
   margin: 2.5rem 0 3.5rem;
@@ -12,30 +10,10 @@ const ButtonGroup = styled.div`
 `;
 
 function SaveButtonGroup() {
-  const { updateSavedColor, saveCurrentColor } = useContext(ColorContext);
-
-  const handleDeleteAll = () => {
-    updateSavedColor([]);
-  };
-
   return (
     <ButtonGroup>
-      <OutlineButton
-        color="var(--green)"
-        hoverColor="var(--green-hover)"
-        icon={<MdSave size={18} />}
-        onClickEvent={saveCurrentColor}
-      >
-        Save Color
-      </OutlineButton>
-      <OutlineButton
-        color="var(--light-red)"
-        hoverColor="var(--light-red-hover)"
-        icon={<MdDelete size={18} />}
-        onClickEvent={handleDeleteAll}
-      >
-        Delete All
-      </OutlineButton>
+      <SaveButton />
+      <DeleteAllButton />
     </ButtonGroup>
   );
 }

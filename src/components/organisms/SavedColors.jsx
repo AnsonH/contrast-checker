@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SaveButtonGroup from "../molecules/SaveButtonGroup";
 import ColorSwatch from "../molecules/ColorSwatch";
 import { bp } from "../../styles/breakpoints";
+import { SaveContextProvider } from "../../context/SaveContext";
 
 const Container = styled.div`
   padding-top: 1rem;
@@ -14,9 +15,11 @@ const Container = styled.div`
 export default function SavedColors() {
   return (
     <Container>
-      <h2>Saved Colors</h2>
-      <SaveButtonGroup />
-      <ColorSwatch />
+      <SaveContextProvider>
+        <h2>Saved Colors</h2>
+        <SaveButtonGroup />
+        <ColorSwatch />
+      </SaveContextProvider>
     </Container>
   );
 }
