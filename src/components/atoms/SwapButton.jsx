@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { MdSwapVert } from "react-icons/md";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 import Tooltip from "./Tooltip";
 
 const Button = styled.button`
@@ -34,7 +34,7 @@ const TooltipText = styled.p`
 `;
 
 export default function SwapButton() {
-  const { background, updateBackground, foreground, updateForeground } = useContext(Context);
+  const { background, updateBackground, foreground, updateForeground } = useContext(ColorContext);
 
   const handleSwap = () => {
     const oldBackground = background;

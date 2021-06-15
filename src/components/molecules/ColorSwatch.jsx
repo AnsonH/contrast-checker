@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 import ColorTile from "../atoms/ColorTile";
 import { getRgbString } from "../../utils/colorUtils";
 
@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 function ColorSwatch() {
-  const { updateBackground, updateForeground, savedColors, setSavedColors } = useContext(Context);
+  const { updateBackground, updateForeground, savedColors, setSavedColors } = useContext(ColorContext);
 
   // Load saved color
   // Every saved color stores a property called `key`, which is a timestamp

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ContextProvider } from "./Context";
+import { ColorContextProvider } from "./context/ColorContext";
 import ColorInputs from "./components/organisms/ColorInputs";
 import SavedColors from "./components/organisms/SavedColors";
 import PreviewContent from "./components/organisms/PreviewContent";
@@ -70,7 +70,7 @@ const PreviewArea = styled.div`
 
 export default function App() {
   return (
-    <ContextProvider>
+    <ColorContextProvider>
       <GlobalStyles />
       <Container>
         <ColorControl>
@@ -82,6 +82,6 @@ export default function App() {
           <PreviewContent />
         </PreviewArea>
       </Container>
-    </ContextProvider>
+    </ColorContextProvider>
   );
 }

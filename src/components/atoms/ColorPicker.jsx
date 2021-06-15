@@ -4,7 +4,7 @@ import { RgbColorPicker } from "react-colorful";
 import { colord } from "colord";
 import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 import { getColorString } from "../../utils/colorUtils";
 
 const PickerButton = styled.button`
@@ -42,7 +42,7 @@ const styles = {
 };
 
 function ColorPicker({ target }) {
-  const { background, updateBackground, foreground, updateForeground } = useContext(Context);
+  const { background, updateBackground, foreground, updateForeground } = useContext(ColorContext);
 
   const isBackground = target === "background";
   const targetColor = isBackground ? background : foreground;

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { colord, getFormat } from "colord";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 
 const Input = styled.input`
   width: 85%;
@@ -33,7 +33,7 @@ const HelperText = styled.p`
 `;
 
 function ColorTextInput({ target }) {
-  const { background, updateBackground, foreground, updateForeground } = useContext(Context);
+  const { background, updateBackground, foreground, updateForeground } = useContext(ColorContext);
 
   const isBackground = target === "background";
   const color = isBackground ? background : foreground;

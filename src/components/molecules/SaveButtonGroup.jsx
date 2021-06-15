@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import { MdSave, MdDelete } from "react-icons/md";
 import OutlineButton from "../atoms/OutlineButton";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 
 const ButtonGroup = styled.div`
   margin: 2.5rem 0 3.5rem;
@@ -11,8 +11,8 @@ const ButtonGroup = styled.div`
   flex-wrap: wrap;
 `;
 
-export default function SaveButtonGroup() {
-  const { updateSavedColor, saveCurrentColor } = useContext(Context);
+function SaveButtonGroup() {
+  const { updateSavedColor, saveCurrentColor } = useContext(ColorContext);
 
   const handleDeleteAll = () => {
     updateSavedColor([]);
@@ -39,3 +39,5 @@ export default function SaveButtonGroup() {
     </ButtonGroup>
   );
 }
+
+export default SaveButtonGroup;

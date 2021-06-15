@@ -3,7 +3,7 @@ import { MdContentCopy } from "react-icons/md";
 import styled from "styled-components";
 import copyToClipboard from "copy-text-to-clipboard";
 import PropTypes from "prop-types";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 import Tooltip from "./Tooltip";
 
 const Button = styled.button`
@@ -23,7 +23,7 @@ const TooltipText = styled.p`
 `;
 
 function CopyButton({ target }) {
-  const colorInput = useContext(Context)[target].input;
+  const colorInput = useContext(ColorContext)[target].input;
 
   const handleClick = (event) => {
     copyToClipboard(colorInput);

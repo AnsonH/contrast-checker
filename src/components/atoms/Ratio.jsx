@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
 import styled from "styled-components";
-import Context from "../../Context";
+import ColorContext from "../../context/ColorContext";
 import { bp } from "../../styles/breakpoints";
 extend([a11yPlugin]); // Uses the accessibility plugin from colord
 
@@ -36,7 +36,7 @@ const OutOf = styled.p`
 `;
 
 export default function Ratio() {
-  const { background, foreground } = useContext(Context);
+  const { background, foreground } = useContext(ColorContext);
 
   const backgroundColor = colord(background.rgb);
   const foregroundColor = colord(foreground.rgb);
