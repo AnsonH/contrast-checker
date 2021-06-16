@@ -17,8 +17,12 @@ const Button = styled.button`
   text-decoration: none;
   transition: 150ms background-color ease-out;
 
-  &:hover,
+  &:hover {
+    background-color: ${(props) => props.hoverColor};
+  }
+
   &:focus {
+    outline: ${(props) => (props.anchor ? "3px solid var(--cyan)" : "none")};
     background-color: ${(props) => props.hoverColor};
   }
 `;
@@ -37,6 +41,7 @@ function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon, on
   return (
     <Button
       {...anchorProps}
+      anchor={anchor}
       foreground={color}
       hoverColor={hoverColor}
       hasIcon={icon !== undefined}

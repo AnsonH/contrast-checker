@@ -19,6 +19,10 @@ const TileBtn = styled.button`
   color: ${(props) => props.fg};
   font-size: 2rem;
   font-weight: bold;
+
+  &:focus {
+    outline: 3px solid var(--cyan);
+  }
 `;
 
 const DeleteBtn = styled.button`
@@ -35,6 +39,10 @@ const DeleteBtn = styled.button`
   border: 1px solid var(--white);
   border-radius: 1rem;
   color: var(--white);
+
+  &:focus {
+    outline: 3px solid var(--cyan);
+  }
 `;
 
 function ColorTile({ background, foreground, handleLoad, handleDelete }) {
