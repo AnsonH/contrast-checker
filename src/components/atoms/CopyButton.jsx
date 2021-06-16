@@ -7,6 +7,7 @@ import ColorContext from "../../context/ColorContext";
 import Tooltip from "./Tooltip";
 
 const Button = styled.button`
+  margin-left: 0.5rem;
   padding: 0.8rem;
   background: none;
   color: var(--gray);
