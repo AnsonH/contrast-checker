@@ -3,6 +3,7 @@ import { MdOpenInNew } from "react-icons/md";
 import OutlineButton from "../atoms/OutlineButton";
 import ContrastRatio from "../molecules/ContrastRatio";
 import PreviewText from "../molecules/PreviewText";
+import WcagResults from "../molecules/WcagResults";
 import { bp } from "../../styles/breakpoints";
 
 const Container = styled.div`
@@ -27,6 +28,7 @@ const Results = styled.div`
   align-items: center;
   gap: 2.5rem 7rem;
   background-color: var(--black);
+  border: 1px solid var(--dark-gray);
   border-radius: 1rem;
 
   @media (max-width: ${bp.lg}) {
@@ -68,6 +70,7 @@ export default function PreviewContent() {
       <h1>Color Contrast Checker</h1>
       <Results>
         <ContrastRatio />
+        <WcagResults />
       </Results>
       <Preview>
         <PreviewText largeText title="Large Text - 24px/18pt">

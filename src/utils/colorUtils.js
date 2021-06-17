@@ -51,3 +51,17 @@ export function getContrast(backgroundRgb, foregroundRgb) {
 
   return backgroundColor.contrast(foregroundColor);
 }
+
+/**
+ * Get the WCAG 2.0 Level AA & AAA ratings given a contrast ratio
+ * @param {number} contrast Contrast ratio
+ * @returns `[aaNormal, aaLarge, aaaNormal, aaaLarge]`. For each item, `true` means it passes the test while `false` means it fails the test
+ */
+export function getWcagRatings(contrast) {
+  const aaNormal = contrast >= 4.5;
+  const aaLarge = contrast >= 3;
+  const aaaNormal = contrast >= 7;
+  const aaaLarge = contrast >= 4.5;
+
+  return [aaNormal, aaLarge, aaaNormal, aaaLarge];
+}

@@ -51,6 +51,41 @@ const GlobalStyles = createGlobalStyle`
     font-family: var(--font-sans);
     outline: none;
   }
+
+  table {
+    color: var(--gray);
+    border-spacing: 0;
+    font-size: 1.8rem;
+
+    @media (max-width: ${bp.md}) {
+      font-size: 1.6rem;
+    }
+  }
+
+  th, td {
+    padding: 0.8rem 3rem 0.8rem 1rem;
+
+    &:last-child {
+      padding-right: 1.5rem;
+    }
+
+    @media (max-width: ${bp.md}) {
+      padding-right: 1.5rem;
+    }
+  }
+
+  th {
+    font-weight: 600;
+  }
+
+  td {
+    border-top: 1px solid var(--dark-gray);
+
+    &:first-child {
+      font-weight: 600;
+    }
+  }
+
 `;
 
 export default GlobalStyles;
