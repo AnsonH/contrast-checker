@@ -4,6 +4,7 @@ import { SaveContextProvider } from "./context/SaveContext";
 import ColorInputs from "./components/organisms/ColorInputs";
 import SavedColors from "./components/organisms/SavedColors";
 import PreviewContent from "./components/organisms/PreviewContent";
+import Footer from "./components/atoms/Footer";
 import GlobalStyles from "./styles/GlobalStyles";
 import { bp } from "./styles/breakpoints";
 
@@ -17,13 +18,14 @@ const Container = styled.div`
   }
 `;
 
-const ColorControl = styled.div`
+const ColorControlArea = styled.div`
   width: 30%;
   min-height: 100vh;
   order: 1;
   padding: 4rem 4rem 3rem;
   display: flex;
   flex-direction: column;
+  position: relative;
   background-color: var(--black);
   border-right: 1px solid var(--dark-gray);
   border-top: none;
@@ -34,11 +36,20 @@ const ColorControl = styled.div`
     width: 100%;
     padding: 4.5rem 6vw 3rem;
     order: 2;
-    flex-direction: row;
-    justify-content: space-between;
     border-right: none;
     border-top: 1px solid var(--dark-gray);
     overflow-y: visible;
+  }
+`;
+
+const ColorControl = styled.div`
+  padding-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: ${bp.lg}) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   @media (max-width: ${bp.md}) {
@@ -79,13 +90,16 @@ export default function App() {
     <ColorContextProvider>
       <GlobalStyles />
       <Container>
-        <ColorControl>
-          <ColorInputs />
-          <Divider />
-          <SaveContextProvider>
-            <SavedColors />
-          </SaveContextProvider>
-        </ColorControl>
+        <ColorControlArea>
+          <ColorControl>
+            <ColorInputs />
+            <Divider />
+            <SaveContextProvider>
+              <SavedColors />
+            </SaveContextProvider>
+          </ColorControl>
+          <Footer />
+        </ColorControlArea>
         <PreviewArea>
           <PreviewContent />
         </PreviewArea>
