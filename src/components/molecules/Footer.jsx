@@ -55,7 +55,12 @@ const TextLink = styled.a`
 export default function Footer() {
   return (
     <FooterContainer>
-      <GitHubLink href="https://github.com/AnsonH/contrast-checker" target="_blank" rel="noreferrer">
+      <GitHubLink
+        title="View source on GitHub"
+        href="https://github.com/AnsonH/contrast-checker"
+        target="_blank"
+        rel="noreferrer"
+      >
         <FaGithub size={30} />
       </GitHubLink>
       <Text>

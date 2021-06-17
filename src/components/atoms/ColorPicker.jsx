@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
 import ColorContext from "../../context/ColorContext";
 import { getColorString } from "../../utils/colorUtils";
+import { hideOnEsc } from "./tooltipPlugins";
 
 const PickerButton = styled.button`
   width: 3rem;
@@ -68,6 +69,7 @@ function ColorPicker({ target }) {
       interactive={true}
       wrapperStyles={styles.buttonWrapper}
       tooltipBoxStyles={styles.tooltipBox}
+      plugins={[hideOnEsc]}
     >
       <PickerButton target={target} aria-label="Open color picker" />
     </Tooltip>
