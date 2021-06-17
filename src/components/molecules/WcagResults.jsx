@@ -22,8 +22,12 @@ export default function WcagResults() {
           <th></th>
           <th>Normal Text</th>
           <th>
-            <Tooltip content={<TooltipText>Text of ≥18pt or ≥14pt if bold</TooltipText>} placement="bottom">
-              <p>Large Text</p>
+            <Tooltip
+              content={<TooltipText>Text of ≥18pt or ≥14pt if bold</TooltipText>}
+              placement="bottom"
+              trigger="mouseenter focusin"
+            >
+              <p tabIndex="0">Large Text</p>
             </Tooltip>
           </th>
         </tr>

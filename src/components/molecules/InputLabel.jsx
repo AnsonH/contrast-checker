@@ -29,8 +29,9 @@ function InputLabel({ labelFor, title, tooltipText }) {
           placement="right"
           content={<TooltipText>{tooltipText}</TooltipText>}
           wrapperStyles={{ height: "1.8rem" }}
+          trigger="mouseover focusin"
         >
-          <MdInfoOutline size={18} />
+          <MdInfoOutline size={18} tabIndex="0" />
         </Tooltip>
       ) : null}
     </Container>
