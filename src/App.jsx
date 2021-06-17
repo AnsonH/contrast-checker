@@ -4,7 +4,7 @@ import { SaveContextProvider } from "./context/SaveContext";
 import ColorInputs from "./components/organisms/ColorInputs";
 import SavedColors from "./components/organisms/SavedColors";
 import PreviewContent from "./components/organisms/PreviewContent";
-import Footer from "./components/atoms/Footer";
+import Footer from "./components/molecules/Footer";
 import GlobalStyles from "./styles/GlobalStyles";
 import { bp } from "./styles/breakpoints";
 
