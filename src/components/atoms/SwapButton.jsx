@@ -34,13 +34,7 @@ const TooltipText = styled.p`
 `;
 
 export default function SwapButton() {
-  const { background, updateBackground, foreground, updateForeground } = useContext(ColorContext);
-
-  const handleSwap = () => {
-    const oldBackground = background;
-    updateBackground(foreground);
-    updateForeground(oldBackground);
-  };
+  const { handleSwapColors } = useContext(ColorContext);
 
   return (
     <Tooltip
@@ -52,7 +46,7 @@ export default function SwapButton() {
       wrapperStyles={{ margin: "2.2rem 15% 2.2rem 0" }}
     >
       <Button aria-label="Swap colors">
-        <MdSwapVert size={28} onClick={handleSwap} />
+        <MdSwapVert size={28} onClick={handleSwapColors} />
       </Button>
     </Tooltip>
   );

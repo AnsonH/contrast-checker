@@ -70,6 +70,7 @@ const PreviewArea = styled.div`
     width: 100%;
     padding: 3rem 6vw 4.5rem;
     order: 1;
+    overflow-y: visible;
   }
 `;
 

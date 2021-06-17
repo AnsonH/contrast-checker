@@ -41,6 +41,14 @@ function ColorContextProvider({ children }) {
     setContrast(contrast);
   };
 
+  const handleSwapColors = () => {
+    const oldBackground = background;
+    const oldForeground = foreground;
+    updateBackground(foreground);
+    updateForeground(oldBackground);
+    updateContrast(oldBackground.rgb, oldForeground.rgb);
+  };
+
   const data = {
     background,
     updateBackground,
@@ -48,6 +56,7 @@ function ColorContextProvider({ children }) {
     updateForeground,
     contrast,
     updateContrast,
+    handleSwapColors,
   };
 
   return <ColorContext.Provider value={data}>{children}</ColorContext.Provider>;

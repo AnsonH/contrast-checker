@@ -2,7 +2,6 @@ import { useContext } from "react";
 import styled from "styled-components";
 import ColorContext from "../../context/ColorContext";
 import { bp } from "../../styles/breakpoints";
-import { getContrast } from "../../utils/colorUtils";
 
 const Container = styled.div`
   width: 9.5rem;
