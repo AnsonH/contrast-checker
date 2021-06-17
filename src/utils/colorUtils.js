@@ -1,4 +1,6 @@
-import { colord } from "colord";
+import { colord, extend } from "colord";
+import a11yPlugin from "colord/plugins/a11y";
+extend([a11yPlugin]); // Uses the accessibility plugin from colord
 
 /**
  * Get the string representation of the color according to the given color format.
@@ -35,4 +37,17 @@ export function getColorString(color, format) {
  */
 export function getRgbString(rgbColor) {
   return colord(rgbColor).toRgbString();
+}
+
+/**
+ * Gets the contrast ratio between background and foreground colors
+ * @param {{r: number, g: number, b: number}} backgroundRgb Background color
+ * @param {{r: number, g: number, b: number}} foregroundRgb Foreground color
+ * @returns number
+ */
+export function getContrast(backgroundRgb, foregroundRgb) {
+  const backgroundColor = colord(backgroundRgb);
+  const foregroundColor = colord(foregroundRgb);
+
+  return backgroundColor.contrast(foregroundColor);
 }

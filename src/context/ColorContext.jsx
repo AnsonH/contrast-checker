@@ -1,7 +1,8 @@
 import { createContext, useState } from "react";
-import { defaultColors } from "../styles/theme";
 import { colord } from "colord";
 import PropTypes from "prop-types";
+import { defaultColors } from "../styles/theme";
+import { getContrast } from "../utils/colorUtils";
 
 const ColorContext = createContext();
 
@@ -19,16 +20,25 @@ function ColorContextProvider({ children }) {
     validInput: true,
   });
 
+  const [contrast, setContrast] = useState(getContrast(background.rgb, foreground.rgb));
+
   const updateBackground = (colorState) => {
     const hex = colord(colorState.rgb).toHex();
     setBackground(colorState);
     document.documentElement.style.setProperty("--background", hex);
+    updateContrast(colorState.rgb, foreground.rgb);
   };
 
   const updateForeground = (colorState) => {
     const hex = colord(colorState.rgb).toHex();
     setForeground(colorState);
     document.documentElement.style.setProperty("--foreground", hex);
+    updateContrast(background.rgb, colorState.rgb);
+  };
+
+  const updateContrast = (backgroundRgb, foregroundRgb) => {
+    let contrast = getContrast(backgroundRgb, foregroundRgb);
+    setContrast(contrast);
   };
 
   const data = {
@@ -36,6 +46,8 @@ function ColorContextProvider({ children }) {
     updateBackground,
     foreground,
     updateForeground,
+    contrast,
+    updateContrast,
   };
 
   return <ColorContext.Provider value={data}>{children}</ColorContext.Provider>;

@@ -63,6 +63,7 @@ const PreviewArea = styled.div`
   padding: 3.5rem;
   order: 2;
   background-color: var(--background);
+  overflow-y: auto;
 
   @media (max-width: ${bp.lg}) {
     min-height: auto;

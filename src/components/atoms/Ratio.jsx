@@ -1,10 +1,8 @@
 import { useContext } from "react";
-import { colord, extend } from "colord";
-import a11yPlugin from "colord/plugins/a11y";
 import styled from "styled-components";
 import ColorContext from "../../context/ColorContext";
 import { bp } from "../../styles/breakpoints";
-extend([a11yPlugin]); // Uses the accessibility plugin from colord
+import { getContrast } from "../../utils/colorUtils";
 
 const Container = styled.div`
   width: 9.5rem;
@@ -36,12 +34,7 @@ const OutOf = styled.p`
 `;
 
 export default function Ratio() {
-  const { background, foreground } = useContext(ColorContext);
-
-  const backgroundColor = colord(background.rgb);
-  const foregroundColor = colord(foreground.rgb);
-
-  let contrast = backgroundColor.contrast(foregroundColor);
+  let { contrast } = useContext(ColorContext);
   contrast = (Math.round(contrast * 10) / 10).toFixed(1); // Round to 1 decimal place
 
   return (
