@@ -1,9 +1,7 @@
-import { useContext } from "react";
 import { MdContentCopy } from "react-icons/md";
 import styled from "styled-components";
 import copyToClipboard from "copy-text-to-clipboard";
 import PropTypes from "prop-types";
-import ColorContext from "../../context/ColorContext";
 import Tooltip from "./Tooltip";
 
 const Button = styled.button`
@@ -24,9 +22,8 @@ const TooltipText = styled.p`
 `;
 
 function CopyButton({ target }) {
-  const colorInput = useContext(ColorContext)[target].input;
-
   const handleClick = (event) => {
+    const colorInput = document.getElementById(target).value;
     copyToClipboard(colorInput);
     event.currentTarget.blur();
   };
