@@ -16,7 +16,7 @@ const Button = styled.button`
   border-radius: 2rem;
   color: var(--white);
   font-size: 0rem; // Bug fix: Arrow appear to small on mobile devices
-  transition: 150ms ease-in-out;
+  transition: 150ms ease;
   -webkit-appearance: none; // Fix iOS appearance bugs
 
   &:hover {

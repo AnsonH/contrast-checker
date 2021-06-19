@@ -15,7 +15,7 @@ const Button = styled.button`
   font-weight: 600;
   font-size: 1.6rem;
   text-decoration: none;
-  transition: 150ms background-color ease-out;
+  transition: 150ms background-color ease;
 
   &:hover {
     background-color: ${(props) => props.hoverColor};

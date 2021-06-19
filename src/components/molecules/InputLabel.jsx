@@ -20,6 +20,16 @@ const TooltipText = styled.p`
   font-size: 1.4rem;
 `;
 
+const InfoIcon = styled(MdInfoOutline)`
+  transition: 150ms color ease;
+
+  &:hover,
+  &:focus {
+    color: var(--cyan);
+    outline: none;
+  }
+`;
+
 function InputLabel({ labelFor, title, tooltipText }) {
   return (
     <Container>
@@ -31,7 +41,7 @@ function InputLabel({ labelFor, title, tooltipText }) {
           wrapperStyles={{ height: "1.8rem" }}
           trigger="mouseenter focusin"
         >
-          <MdInfoOutline size={18} tabIndex="0" />
+          <InfoIcon size={18} tabIndex="0" />
         </Tooltip>
       ) : null}
     </Container>

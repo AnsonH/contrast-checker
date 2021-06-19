@@ -9,7 +9,7 @@ const Button = styled.button`
   padding: 0.8rem;
   background: none;
   color: var(--gray);
-  transition: 150ms color ease-out;
+  transition: 150ms color ease;
 
   &:hover,
   &:focus {
