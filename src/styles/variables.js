@@ -7,7 +7,7 @@ const variables = css`
     --foreground: ${defaultColors.foreground};
 
     --black: #0c0e0f;
-    --darkest-gray: #505050;
+    --darkest-gray: #464646;
     --dark-gray: #717171;
     --gray: #c3c3c3;
     --white: #ffffff;
