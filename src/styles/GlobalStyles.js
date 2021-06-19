@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import variables from "./variables";
+import variables from "./theme";
 import { bp } from "./breakpoints";
 
 const GlobalStyles = createGlobalStyle`
