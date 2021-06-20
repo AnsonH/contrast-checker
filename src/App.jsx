@@ -18,7 +18,7 @@ const Container = styled.div`
   }
 `;
 
-const ColorControlArea = styled.div`
+const ColorControlSection = styled.section`
   width: 30%;
   min-height: 100vh;
   order: 1;
@@ -68,7 +68,7 @@ const Divider = styled.div`
   }
 `;
 
-const PreviewArea = styled.div`
+const PreviewSection = styled.section`
   width: 70%;
   min-height: 100vh;
   padding: 3.5rem;
@@ -90,7 +90,7 @@ export default function App() {
     <ColorContextProvider>
       <GlobalStyles />
       <Container>
-        <ColorControlArea>
+        <ColorControlSection>
           <ColorControl>
             <ColorInputs />
             <Divider />
@@ -99,10 +99,10 @@ export default function App() {
             </SaveContextProvider>
           </ColorControl>
           <Footer />
-        </ColorControlArea>
-        <PreviewArea>
+        </ColorControlSection>
+        <PreviewSection>
           <PreviewContent />
-        </PreviewArea>
+        </PreviewSection>
       </Container>
     </ColorContextProvider>
   );

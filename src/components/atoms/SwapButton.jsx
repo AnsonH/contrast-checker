@@ -43,7 +43,7 @@ export default function SwapButton() {
       placement="right"
       offset={[0, 15]}
       touch={false}
-      wrapperStyles={{ margin: "2.2rem 15% 2.2rem 0" }}
+      wrapperStyles={{ margin: "2.2rem 16% 2.2rem 0" }}
     >
       <Button aria-label="Swap colors">
         <MdSwapVert size={28} onClick={handleSwapColors} />
