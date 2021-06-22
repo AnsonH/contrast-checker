@@ -1,3 +1,33 @@
-# Contrast Ratio Checker
+<h1 align="center">Contrast Ratio Checker</h1>
+<p align="center">A simple React app that checks the color contrast of your design based on WCAG. 🎨</p>
+<div align="center">
+  <a href="https://app.netlify.com/sites/color-contrast/deploys">
+    <img src="https://api.netlify.com/api/v1/badges/576f7773-bf15-4f87-baf8-1a8f4ca45391/deploy-status" alt="Netlify Status">
+  </a>
+</div>
 
-A simple React app that calculates the contrast ratio for your color design.
+![Demo](./images/demo.png)
+
+## :bulb: Features
+
+- :art: Color pickers for color input
+- :arrows_counterclockwise: Accepts HEX, RGB and HSL color formats
+- :man_with_probing_cane: Checks against [WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) Level AA and Level AAA requirements
+- :floppy_disk: Saves and loads themes from local storage
+- :iphone: Responsive design
+
+## :hammer_and_wrench: Development
+
+```bash
+# 1. Clone this repository to your local computer
+git clone https://github.com/AnsonH/contrast-checker.git
+
+# 2. Change directory to the root of the repo
+cd contrast-checker
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm start
+```
