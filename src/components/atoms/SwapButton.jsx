@@ -33,6 +33,10 @@ const TooltipText = styled.p`
   font-size: 1.4rem;
 `;
 
+const tooltipWrapperStyles = {
+  margin: "2.2rem 16% 2.2rem 0",
+};
+
 export default function SwapButton() {
   const { handleSwapColors } = useContext(ColorContext);
 
@@ -43,7 +47,7 @@ export default function SwapButton() {
       placement="right"
       offset={[0, 15]}
       touch={false}
-      wrapperStyles={{ margin: "2.2rem 16% 2.2rem 0" }}
+      wrapperStyles={tooltipWrapperStyles}
     >
       <Button aria-label="Swap colors">
         <MdSwapVert size={28} onClick={handleSwapColors} />

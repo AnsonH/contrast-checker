@@ -30,6 +30,10 @@ const InfoIcon = styled(MdInfoOutline)`
   }
 `;
 
+const tooltipWrapperStyles = {
+  height: "1.8rem",
+};
+
 function InputLabel({ labelFor, title, tooltipText }) {
   return (
     <Container>
@@ -38,7 +42,7 @@ function InputLabel({ labelFor, title, tooltipText }) {
         <Tooltip
           placement="right"
           content={<TooltipText>{tooltipText}</TooltipText>}
-          wrapperStyles={{ height: "1.8rem" }}
+          wrapperStyles={tooltipWrapperStyles}
           trigger="mouseenter focusin"
         >
           <InfoIcon size={18} tabIndex="0" />

@@ -21,6 +21,11 @@ const TooltipText = styled.p`
   font-size: 1.4rem;
 `;
 
+const tooltipWrapperStyles = {
+  marginTop: "0.5rem",
+  marginLeft: "auto",
+};
+
 function CopyButton({ target }) {
   const handleClick = (event) => {
     const colorInput = document.getElementById(target).value;
@@ -35,7 +40,7 @@ function CopyButton({ target }) {
       offset={[-40, 14]}
       onShow={(instance) => setTimeout(() => instance.hide(), 2000)}
       hideOnClick={false}
-      wrapperStyles={{ marginTop: "0.5rem", marginLeft: "auto" }}
+      wrapperStyles={tooltipWrapperStyles}
     >
       <Button onClick={handleClick} aria-label="Copy to clipboard">
         <MdContentCopy size={24} />
