@@ -48,7 +48,12 @@ const DeleteBtn = styled.button`
 function ColorTile({ background, foreground, handleLoad, handleDelete }) {
   return (
     <Container>
-      <TileBtn bg={background} fg={foreground} onClick={handleLoad} aria-label="Load saved color">
+      <TileBtn
+        bg={background}
+        fg={foreground}
+        onClick={handleLoad}
+        aria-label={`Background ${background} with foreground ${foreground}`}
+      >
         Aa
       </TileBtn>
       <DeleteBtn onClick={handleDelete} aria-label="Delete saved color">
