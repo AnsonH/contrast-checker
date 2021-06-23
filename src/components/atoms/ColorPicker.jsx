@@ -70,6 +70,7 @@ function ColorPicker({ target }) {
       wrapperStyles={styles.buttonWrapper}
       tooltipBoxStyles={styles.tooltipBox}
       plugins={[hideOnEsc]}
+      appendTo={() => document.getElementById(`picker-root-${target}`)}
     >
       <PickerButton target={target} aria-label="Open color picker" />
     </Tooltip>

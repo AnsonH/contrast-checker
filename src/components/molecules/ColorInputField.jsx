@@ -18,6 +18,7 @@ function ColorInputField({ target }) {
     <Container>
       <ColorTextInput target={target} />
       <ColorPicker target={target} />
+      <div id={`picker-root-${target}`} />
       <CopyButton target={target} />
     </Container>
   );
