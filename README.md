@@ -1,5 +1,5 @@
 <h1 align="center">Contrast Ratio Checker</h1>
-<p align="center">A simple React app that checks the color contrast of your design based on WCAG. 🎨</p>
+<p align="center">A simple React app that checks the color contrast of your design based on Web Content Accessibility Guidelines (WCAG). 🎨</p>
 <div align="center">
   <a href="https://app.netlify.com/sites/color-contrast/deploys">
     <img src="https://api.netlify.com/api/v1/badges/576f7773-bf15-4f87-baf8-1a8f4ca45391/deploy-status" alt="Netlify Status">
@@ -8,7 +8,7 @@
 
 ![Demo](./images/demo.png)
 
-## :bulb: Features
+## Features :sparkles:
 
 - :art: Color pickers for color input
 - :arrows_counterclockwise: Accepts HEX, RGB and HSL color formats
@@ -16,7 +16,7 @@
 - :floppy_disk: Saves and loads themes from local storage
 - :iphone: Responsive design
 
-## :hammer_and_wrench: Development
+## Development :hammer_and_wrench:
 
 ```bash
 # 1. Clone this repository to your local computer
