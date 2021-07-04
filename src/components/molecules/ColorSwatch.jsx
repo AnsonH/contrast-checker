@@ -13,15 +13,17 @@ const Container = styled.div`
 `;
 
 function ColorSwatch() {
-  const { updateBackground, updateForeground } = useContext(ColorContext);
+  const { updateBackground, updateForeground, updateContrast } = useContext(ColorContext);
   const { savedColors, setSavedColors } = useContext(SaveContext);
 
-  // Load saved color
-  // Every saved color stores a property called `key`, which is a timestamp
+  // Load saved color. Every saved color stores a property called `key`, which is a timestamp
   const handleLoad = (key) => {
-    const color = savedColors.find((color) => color.time === key);
-    updateBackground(color.background);
-    updateForeground(color.foreground);
+    const { background, foreground } = savedColors.find((color) => color.time === key);
+
+    // Do not update contrast in `updateBackground` and `updateForeground` since state update is async.
+    updateBackground(background, false);
+    updateForeground(foreground, false);
+    updateContrast(background.rgb, foreground.rgb);
   };
 
   // Delete saved color

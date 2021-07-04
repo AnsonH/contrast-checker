@@ -22,18 +22,18 @@ function ColorContextProvider({ children }) {
 
   const [contrast, setContrast] = useState(getContrast(background.rgb, foreground.rgb));
 
-  const updateBackground = (colorState) => {
+  const updateBackground = (colorState, calcContrast = true) => {
     const hex = colord(colorState.rgb).toHex();
     setBackground(colorState);
     document.documentElement.style.setProperty("--background", hex);
-    updateContrast(colorState.rgb, foreground.rgb);
+    calcContrast && updateContrast(colorState.rgb, foreground.rgb);
   };
 
-  const updateForeground = (colorState) => {
+  const updateForeground = (colorState, calcContrast = true) => {
     const hex = colord(colorState.rgb).toHex();
     setForeground(colorState);
     document.documentElement.style.setProperty("--foreground", hex);
-    updateContrast(background.rgb, colorState.rgb);
+    calcContrast && updateContrast(background.rgb, colorState.rgb);
   };
 
   const updateContrast = (backgroundRgb, foregroundRgb) => {
