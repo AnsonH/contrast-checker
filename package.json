@@ -1,6 +1,6 @@
 {
   "name": "contrast-checker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Color contrast checker based on WCAG 2.0",
   "license": "MIT",
   "author": {
