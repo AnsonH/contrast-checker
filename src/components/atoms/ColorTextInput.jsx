@@ -65,6 +65,7 @@ function ColorTextInput({ target }) {
         value={color.input}
         onChange={(event) => handleInputChange(event)}
         valid={validInput}
+        spellCheck={false}
       />
       <HelperText visible={!validInput}>Invalid input</HelperText>
     </>
