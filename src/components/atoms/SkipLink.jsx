@@ -3,7 +3,7 @@ import styled from "styled-components";
 const SkipLink = styled.a`
   padding: 1.5rem 2rem;
   position: absolute;
-  left: -19rem;
+  top: -6rem;
   background-color: var(--cyan);
   border-radius: 0.5rem;
   color: var(--black);
@@ -14,7 +14,7 @@ const SkipLink = styled.a`
 
   &:focus,
   &:active {
-    transform: translateX(100%);
+    transform: translateY(120%);
   }
 `;
 
