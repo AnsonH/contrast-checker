@@ -40,7 +40,7 @@ function InputLabel({ labelFor, title, tooltipText }) {
       <Label htmlFor={labelFor}>{title}</Label>
       {tooltipText !== undefined ? (
         <Tooltip
-          placement="right"
+          placement={window.innerWidth >= 330 ? "right" : "top"}
           content={<TooltipText>{tooltipText}</TooltipText>}
           wrapperStyles={tooltipWrapperStyles}
           trigger="mouseenter focusin"
