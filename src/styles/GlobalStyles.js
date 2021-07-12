@@ -41,6 +41,10 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 600;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   p {
     margin: 0;
   }

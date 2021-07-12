@@ -66,7 +66,7 @@ const Links = styled.div`
 
 export default function PreviewContent() {
   return (
-    <Container>
+    <Container id="preview">
       <h1>Color Contrast Checker</h1>
       <Results>
         <ContrastRatio />

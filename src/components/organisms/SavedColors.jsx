@@ -22,7 +22,7 @@ const Container = styled.div`
 
 export default function SavedColors() {
   return (
-    <Container>
+    <Container id="saved-colors">
       <h2>Saved Colors</h2>
       <SaveButtonGroup />
       <ColorSwatch />

@@ -28,7 +28,6 @@ const Text = styled.p`
 const TextLink = styled.a`
   position: relative;
   color: var(--cyan);
-  text-decoration: none;
 
   // Animated underline effect on hover
   &::after {

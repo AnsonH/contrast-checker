@@ -5,6 +5,7 @@ import ColorInputs from "./components/organisms/ColorInputs";
 import SavedColors from "./components/organisms/SavedColors";
 import PreviewContent from "./components/organisms/PreviewContent";
 import Footer from "./components/molecules/Footer";
+import SkipLink from "./components/atoms/SkipLink";
 import GlobalStyles from "./styles/GlobalStyles";
 import { bp } from "./styles/breakpoints";
 
@@ -12,6 +13,7 @@ const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: row;
+  position: relative;
 
   @media (max-width: ${bp.lg}) {
     flex-direction: column;
@@ -90,6 +92,8 @@ export default function App() {
     <ColorContextProvider>
       <GlobalStyles />
       <Container>
+        <SkipLink href="#saved-colors">Skip to Saved Colors</SkipLink>
+        <SkipLink href="#preview">Skip to Preview Area</SkipLink>
         <ColorControlSection>
           <ColorControl>
             <ColorInputs />
