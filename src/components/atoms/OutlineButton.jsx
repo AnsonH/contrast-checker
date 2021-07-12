@@ -14,14 +14,14 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 600;
   font-size: 1.6rem;
-  transition: 150ms background-color ease;
+  transition: background-color 150ms ease;
 
   &:hover {
     background-color: ${(props) => props.hoverColor};
   }
 
   &:focus {
-    outline: ${(props) => (props.anchor ? "3px solid var(--cyan)" : "none")};
+    outline: 3px solid var(--cyan);
     background-color: ${(props) => props.hoverColor};
   }
 `;
