@@ -29,10 +29,6 @@ const Button = styled.button`
   }
 `;
 
-const TooltipText = styled.p`
-  font-size: 1.4rem;
-`;
-
 const tooltipWrapperStyles = {
   margin: "2.2rem 16% 2.2rem 0",
 };
@@ -42,7 +38,7 @@ export default function SwapButton() {
 
   return (
     <Tooltip
-      content={<TooltipText>Swap colors</TooltipText>}
+      content={<p>Swap colors</p>}
       trigger="mouseenter focusin"
       placement="right"
       offset={[0, 15]}

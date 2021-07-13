@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
 
 const Button = styled.button`
-  margin-left: 0.5rem;
   padding: 0.8rem;
   background: none;
   color: var(--gray);
@@ -15,10 +14,6 @@ const Button = styled.button`
   &:focus {
     color: var(--cyan);
   }
-`;
-
-const TooltipText = styled.p`
-  font-size: 1.4rem;
 `;
 
 const tooltipWrapperStyles = {
@@ -35,7 +30,7 @@ function CopyButton({ target }) {
 
   return (
     <Tooltip
-      content={<TooltipText>Copied to clipboard</TooltipText>}
+      content={<p>Copied to clipboard</p>}
       trigger="click"
       offset={[-40, 14]}
       onShow={(instance) => setTimeout(() => instance.hide(), 2000)}

@@ -7,6 +7,7 @@ import ColorContext from "../../context/ColorContext";
 const Input = styled.input`
   width: 85%;
   padding: 0.5rem 0.8rem 0.5rem 5.2rem;
+  margin-right: 0.5rem;
 
   background: var(--black);
   border: none; // Use box-shadow for border instead

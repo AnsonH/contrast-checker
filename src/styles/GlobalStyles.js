@@ -90,6 +90,13 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  // Targets all tooltips (React Tippy) 
+  div[id^="tippy"] {
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
 `;
 
 export default GlobalStyles;

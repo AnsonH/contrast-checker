@@ -1,13 +1,8 @@
 import { useContext } from "react";
-import styled from "styled-components";
 import ColorContext from "../../context/ColorContext";
 import Rating from "../atoms/Rating";
 import Tooltip from "../atoms/Tooltip";
 import { getWcagRatings } from "../../utils/colorUtils";
-
-const TooltipText = styled.p`
-  font-size: 1.4rem;
-`;
 
 export default function WcagResults() {
   const { contrast } = useContext(ColorContext);
@@ -22,11 +17,7 @@ export default function WcagResults() {
           <th></th>
           <th>Normal Text</th>
           <th>
-            <Tooltip
-              content={<TooltipText>Text of ≥18pt or ≥14pt if bold</TooltipText>}
-              placement="bottom"
-              trigger="mouseenter focusin"
-            >
+            <Tooltip content={<p>Text of ≥18pt or ≥14pt if bold</p>} placement="bottom" trigger="mouseenter focusin">
               <p tabIndex="0">Large Text</p>
             </Tooltip>
           </th>

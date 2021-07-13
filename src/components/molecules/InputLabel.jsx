@@ -16,10 +16,6 @@ const Label = styled.label`
   font-weight: 600;
 `;
 
-const TooltipText = styled.p`
-  font-size: 1.4rem;
-`;
-
 const InfoIcon = styled(MdInfoOutline)`
   transition: 150ms color ease;
 
@@ -41,7 +37,7 @@ function InputLabel({ labelFor, title, tooltipText }) {
       {tooltipText !== undefined ? (
         <Tooltip
           placement={window.innerWidth >= 330 ? "right" : "top"}
-          content={<TooltipText>{tooltipText}</TooltipText>}
+          content={<p>{tooltipText}</p>}
           wrapperStyles={tooltipWrapperStyles}
           trigger="mouseenter focusin"
         >
