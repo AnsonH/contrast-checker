@@ -63,7 +63,7 @@ export default function Footer() {
         <FaGithub size={30} />
       </GitHubLink>
       <Text>
-        Designed & Built by{" "}
+        Created by{" "}
         <TextLink href="https://www.ansonheung.me/" target="_blank" rel="noreferrer">
           Anson Heung
         </TextLink>

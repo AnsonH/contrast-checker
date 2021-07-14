@@ -49,6 +49,33 @@ function ColorContextProvider({ children }) {
     updateContrast(oldBackground.rgb, oldForeground.rgb);
   };
 
+  // Cycle through color formats of HEX, RGB and HSL
+  const handleChangeFormat = (target) => {
+    const isBackground = target === "background";
+
+    const color = isBackground ? background : foreground;
+    let colorInput = color.input;
+    let colorFormat = color.inputFormat;
+
+    switch (colorFormat) {
+      case "hex":
+        colorInput = colord(color.rgb).toRgbString();
+        colorFormat = "rgb";
+        break;
+      case "rgb":
+        colorInput = colord(color.rgb).toHslString();
+        colorFormat = "hsl";
+        break;
+      case "hsl":
+        colorInput = colord(color.rgb).toHex().toUpperCase();
+        colorFormat = "hex";
+        break;
+    }
+
+    const newColor = { ...color, input: colorInput, inputFormat: colorFormat, validInput: true };
+    isBackground ? updateBackground(newColor, false) : updateForeground(newColor, false);
+  };
+
   const data = {
     background,
     updateBackground,
@@ -57,6 +84,7 @@ function ColorContextProvider({ children }) {
     contrast,
     updateContrast,
     handleSwapColors,
+    handleChangeFormat,
   };
 
   return <ColorContext.Provider value={data}>{children}</ColorContext.Provider>;
