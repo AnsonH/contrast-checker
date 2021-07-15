@@ -12,6 +12,7 @@
 
 - :art: Color pickers for color input
 - :arrows_counterclockwise: Accepts HEX, RGB and HSL color formats
+- :arrows_clockwise: Converts color format to HEX, RGB and HSL
 - :man_with_probing_cane: Checks against [WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html) Level AA and Level AAA requirements
 - :floppy_disk: Saves and loads themes from local storage
 - :iphone: Responsive design
