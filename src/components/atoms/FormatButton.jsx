@@ -21,7 +21,7 @@ function FormatButton({ target }) {
   const { handleChangeFormat } = useContext(ColorContext);
 
   return (
-    <Tooltip content={<p>Change color format</p>} offset={[-40, 14]}>
+    <Tooltip content={<p>Change color format</p>} offset={[-40, 14]} trigger="mouseenter focusin">
       <Button onClick={() => handleChangeFormat(target)} aria-label="Change color format">
         <MdColorLens size={24} />
       </Button>

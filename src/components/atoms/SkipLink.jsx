@@ -15,6 +15,7 @@ const SkipLink = styled.a`
   &:focus,
   &:active {
     transform: translateY(120%);
+    outline: none;
   }
 `;
 

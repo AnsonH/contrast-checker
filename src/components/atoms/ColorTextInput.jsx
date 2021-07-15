@@ -15,7 +15,7 @@ const Input = styled.input`
   border-radius: 0.5rem;
   color: var(--white);
   font-family: var(--font-sans);
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 600;
   -webkit-appearance: none; // Fix iOS appearance bugs
 
