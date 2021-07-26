@@ -32,3 +32,13 @@ npm install
 # 4. Start the development server
 npm start
 ```
+
+[Webpack Bundle Analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer) is also installed as a dev dependency to analyze the bundle size. To generate a treemap visualization:
+
+```bash
+# 1. Create a production build
+npm run build
+
+# 2. Generate a treemap report
+npm run analyze
+```

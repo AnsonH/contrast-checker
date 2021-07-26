@@ -26,11 +26,13 @@
   },
   "devDependencies": {
     "eslint": "^7.28.0",
-    "eslint-plugin-react": "^7.24.0"
+    "eslint-plugin-react": "^7.24.0",
+    "webpack-bundle-analyzer": "^4.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --stats",
+    "analyze": "webpack-bundle-analyzer build/bundle-stats.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
