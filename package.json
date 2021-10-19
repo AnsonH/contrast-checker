@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@tippyjs/react": "^4.2.5",
-    "colord": "^2.7.0",
+    "colord": "^2.9.0",
     "copy-text-to-clipboard": "^3.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
