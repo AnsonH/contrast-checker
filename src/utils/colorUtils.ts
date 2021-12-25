@@ -1,17 +1,17 @@
-import { colord, extend } from "colord";
+import { Colord, colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
+import { Format } from "colord/types";
+import { RgbObject } from "../types/colors.types";
 extend([a11yPlugin]); // Uses the accessibility plugin from colord
 
 /**
  * Get the string representation of the color according to the given color format.
- * @param {Colord} color Input color object
- * @param {import("colord/types").Format} [format] The color format for the output
- * @returns {string}  String representation of the color
+ * @returns String representation of the color
  * @example
  * const color = colord("#ff0000");
  * getColorString(color, "hsl");  // Returns "hsl(0, 100%, 50%)"
  */
-export function getColorString(color, format) {
+export function getColorString(color: Colord, format: Format) {
   let output = null;
   switch (format) {
     case "hex":
@@ -31,21 +31,16 @@ export function getColorString(color, format) {
 }
 
 /**
- * Convert a RGB object into a string
- * @param {{r: number, g: number, b: number}} rgbColor Input color object
- * @returns {string}
+ * Convert a RGB object into a string.
  */
-export function getRgbString(rgbColor) {
+export function getRgbString(rgbColor: RgbObject) {
   return colord(rgbColor).toRgbString();
 }
 
 /**
- * Gets the contrast ratio between background and foreground colors
- * @param {{r: number, g: number, b: number}} backgroundRgb Background color
- * @param {{r: number, g: number, b: number}} foregroundRgb Foreground color
- * @returns number
+ * Gets the contrast ratio between background and foreground colors.
  */
-export function getContrast(backgroundRgb, foregroundRgb) {
+export function getContrast(backgroundRgb: RgbObject, foregroundRgb: RgbObject) {
   const backgroundColor = colord(backgroundRgb);
   const foregroundColor = colord(foregroundRgb);
 
@@ -53,15 +48,14 @@ export function getContrast(backgroundRgb, foregroundRgb) {
 }
 
 /**
- * Get the WCAG 2.0 Level AA & AAA ratings given a contrast ratio
- * @param {number} contrast Contrast ratio
+ * Get the WCAG 2.0 Level AA & AAA ratings given a contrast ratio.
  * @returns `[aaNormal, aaLarge, aaaNormal, aaaLarge]`. For each item, `true` means it passes the test while `false` means it fails the test
  */
-export function getWcagRatings(contrast) {
-  const aaNormal = contrast >= 4.5;
-  const aaLarge = contrast >= 3;
-  const aaaNormal = contrast >= 7;
-  const aaaLarge = contrast >= 4.5;
+export function getWcagRatings(contrastRatio: number): [boolean, boolean, boolean, boolean] {
+  const aaNormal = contrastRatio >= 4.5;
+  const aaLarge = contrastRatio >= 3;
+  const aaaNormal = contrastRatio >= 7;
+  const aaaLarge = contrastRatio >= 4.5;
 
   return [aaNormal, aaLarge, aaaNormal, aaaLarge];
 }
