@@ -14,19 +14,19 @@
   },
   "dependencies": {
     "@tippyjs/react": "^4.2.5",
-    "colord": "^2.0.1",
+    "colord": "^2.9.2",
     "copy-text-to-clipboard": "^3.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-colorful": "^5.2.2",
+    "react-colorful": "^5.5.0",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
-    "eslint-plugin-react": "^7.24.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.25.3",
     "webpack-bundle-analyzer": "^4.4.2"
   },
   "scripts": {
