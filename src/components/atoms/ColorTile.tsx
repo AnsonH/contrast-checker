@@ -1,13 +1,19 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { MdClose } from "react-icons/md";
+
+type ColorTileProps = {
+  background: string;
+  foreground: string;
+  handleLoad: () => void;
+  handleDelete: () => void;
+};
 
 const Container = styled.div`
   position: relative;
   width: max-content;
 `;
 
-const TileBtn = styled.button`
+const TileBtn = styled.button<{ bg: string; fg: string }>`
   width: 5.5rem;
   height: 5.5rem;
   display: flex;
@@ -45,7 +51,7 @@ const DeleteBtn = styled.button`
   }
 `;
 
-function ColorTile({ background, foreground, handleLoad, handleDelete }) {
+function ColorTile({ background, foreground, handleLoad, handleDelete }: ColorTileProps) {
   return (
     <Container>
       <TileBtn
@@ -62,12 +68,5 @@ function ColorTile({ background, foreground, handleLoad, handleDelete }) {
     </Container>
   );
 }
-
-ColorTile.propTypes = {
-  background: PropTypes.string.isRequired,
-  foreground: PropTypes.string.isRequired,
-  handleLoad: PropTypes.func,
-  handleDelete: PropTypes.func,
-};
 
 export default ColorTile;

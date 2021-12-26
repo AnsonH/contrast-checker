@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { MdColorLens } from "react-icons/md";
-import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
 import { useContext } from "react";
 import ColorContext from "../../context/ColorContext";
+import { Target } from "../../types/colors.types";
+
+type FormatButtonProps = {
+  target: Target;
+};
 
 const Button = styled.button`
   padding: 0.8rem;
@@ -17,7 +21,7 @@ const Button = styled.button`
   }
 `;
 
-function FormatButton({ target }) {
+function FormatButton({ target }: FormatButtonProps) {
   const { handleChangeFormat } = useContext(ColorContext);
 
   return (
@@ -28,9 +32,5 @@ function FormatButton({ target }) {
     </Tooltip>
   );
 }
-
-FormatButton.propTypes = {
-  target: PropTypes.oneOf(["background", "foreground"]).isRequired,
-};
 
 export default FormatButton;

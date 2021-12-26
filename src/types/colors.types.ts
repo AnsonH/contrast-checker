@@ -1,11 +1,13 @@
+export type AcceptedFormat = "hex" | "rgb" | "hsl";
+export type RgbColor = { r: number; g: number; b: number };
+export type Target = "background" | "foreground";
+
 export type Color = {
-  rgb: { r: number; g: number; b: number; a: number };
+  rgb: RgbColor;
   input: string;
-  inputFormat: "hex" | "rgb" | "hsl";
+  inputFormat: AcceptedFormat;
   validInput: boolean;
 };
-
-export type RgbObject = { r: number; g: number; b: number };
 
 /**
  * Colors saved in local storage.

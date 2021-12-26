@@ -1,8 +1,8 @@
 import { createContext, useState } from "react";
 import { colord } from "colord";
 import { defaultColors } from "../styles/theme";
-import { getContrast } from "../utils/colorUtils";
-import { Color, RgbObject } from "../types/colors.types";
+import { getContrast, hexToRgb } from "../utils/colorUtils";
+import { Color, RgbColor, Target } from "../types/colors.types";
 
 type ColorContextProviderProps = {
   children: React.ReactNode;
@@ -14,9 +14,9 @@ type ColorContextType = {
   foreground: Color;
   updateForeground: (color: Color, calcContrast?: boolean) => void;
   contrast: number;
-  updateContrast: (backgroundRgb: RgbObject, foregroundRgb: RgbObject) => void;
+  updateContrast: (backgroundRgb: RgbColor, foregroundRgb: RgbColor) => void;
   handleSwapColors: () => void;
-  handleChangeFormat: (target: "background" | "foreground") => void;
+  handleChangeFormat: (target: Target) => void;
 };
 
 // Color state of the app
@@ -24,13 +24,13 @@ const ColorContext = createContext<ColorContextType>({} as ColorContextType);
 
 function ColorContextProvider({ children }: ColorContextProviderProps) {
   const [background, setBackground] = useState<Color>({
-    rgb: colord(defaultColors.background).toRgb(), // eg. { r: 19, g: 42, b: 49, a: 1 }
+    rgb: hexToRgb(defaultColors.background), // eg. { r: 19, g: 42, b: 49 }
     input: defaultColors.background, // eg. "#132A31"
     inputFormat: "hex",
     validInput: true,
   });
   const [foreground, setForeground] = useState<Color>({
-    rgb: colord(defaultColors.foreground).toRgb(),
+    rgb: hexToRgb(defaultColors.foreground),
     input: defaultColors.foreground,
     inputFormat: "hex",
     validInput: true,
@@ -52,7 +52,7 @@ function ColorContextProvider({ children }: ColorContextProviderProps) {
     calcContrast && updateContrast(background.rgb, color.rgb);
   };
 
-  const updateContrast = (backgroundRgb: RgbObject, foregroundRgb: RgbObject) => {
+  const updateContrast = (backgroundRgb: RgbColor, foregroundRgb: RgbColor) => {
     let contrast = getContrast(backgroundRgb, foregroundRgb);
     setContrast(contrast);
   };
@@ -66,7 +66,7 @@ function ColorContextProvider({ children }: ColorContextProviderProps) {
   };
 
   // Cycle through color formats of HEX, RGB and HSL
-  const handleChangeFormat = (target: "background" | "foreground") => {
+  const handleChangeFormat = (target: Target) => {
     const isBackground = target === "background";
 
     const color = isBackground ? background : foreground;

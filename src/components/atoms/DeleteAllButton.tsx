@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MdDelete } from "react-icons/md";
-import OutlineButton from "../atoms/OutlineButton";
+import OutlineButton from "./OutlineButton";
 import SaveContext from "../../context/SaveContext";
 
 export default function DeleteAllButton() {

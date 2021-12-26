@@ -1,7 +1,6 @@
 import { Colord, colord, extend } from "colord";
 import a11yPlugin from "colord/plugins/a11y";
-import { Format } from "colord/types";
-import { RgbObject } from "../types/colors.types";
+import { AcceptedFormat, RgbColor } from "../types/colors.types";
 extend([a11yPlugin]); // Uses the accessibility plugin from colord
 
 /**
@@ -11,7 +10,7 @@ extend([a11yPlugin]); // Uses the accessibility plugin from colord
  * const color = colord("#ff0000");
  * getColorString(color, "hsl");  // Returns "hsl(0, 100%, 50%)"
  */
-export function getColorString(color: Colord, format: Format) {
+export function getColorString(color: Colord, format: AcceptedFormat) {
   let output = null;
   switch (format) {
     case "hex":
@@ -33,14 +32,14 @@ export function getColorString(color: Colord, format: Format) {
 /**
  * Convert a RGB object into a string.
  */
-export function getRgbString(rgbColor: RgbObject) {
+export function getRgbString(rgbColor: RgbColor) {
   return colord(rgbColor).toRgbString();
 }
 
 /**
  * Gets the contrast ratio between background and foreground colors.
  */
-export function getContrast(backgroundRgb: RgbObject, foregroundRgb: RgbObject) {
+export function getContrast(backgroundRgb: RgbColor, foregroundRgb: RgbColor) {
   const backgroundColor = colord(backgroundRgb);
   const foregroundColor = colord(foregroundRgb);
 
@@ -58,4 +57,13 @@ export function getWcagRatings(contrastRatio: number): [boolean, boolean, boolea
   const aaaLarge = contrastRatio >= 4.5;
 
   return [aaNormal, aaLarge, aaaNormal, aaaLarge];
+}
+
+/**
+ * Converts HEX string to RGB object. `Colord.toRgb()` is not used because it always returns a RGBA object
+ * with an extra unwanted alpha field of `a: number`.
+ */
+export function hexToRgb(hex: string): RgbColor {
+  const color = colord(hex).toRgb();
+  return { r: color.r, g: color.g, b: color.b };
 }

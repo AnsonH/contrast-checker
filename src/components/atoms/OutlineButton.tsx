@@ -1,7 +1,16 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
-const Button = styled.button`
+type OutlineButtonProps = {
+  anchor?: boolean;
+  children: string;
+  color?: string;
+  hoverColor?: string;
+  hrefLink?: string;
+  icon?: React.ReactNode;
+  onClickEvent?: () => void;
+};
+
+const Button = styled.button<{ hasIcon: boolean; foreground: string; hoverColor?: string }>`
   width: max-content;
   padding: ${(props) => (props.hasIcon ? "0.7rem 1.4rem 0.7rem 1.2rem" : "0.7rem 1.2rem")};
   display: flex;
@@ -17,20 +26,27 @@ const Button = styled.button`
   transition: background-color 150ms ease;
 
   &:hover {
-    background-color: ${(props) => props.hoverColor};
+    ${(props) => `background-color: ${props.hoverColor}`};
   }
 
   &:focus {
     outline: 3px solid var(--cyan);
-    background-color: ${(props) => props.hoverColor};
+    ${(props) => `background-color: ${props.hoverColor}`};
   }
 `;
 
-function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon, onClickEvent }) {
+function OutlineButton({
+  anchor = false,
+  children,
+  color = "var(--white)",
+  hoverColor,
+  hrefLink,
+  icon,
+  onClickEvent,
+}: OutlineButtonProps) {
   // Additional props if we cast the button into an anchor tag
   const anchorProps = anchor
     ? {
-        as: "a",
         href: hrefLink,
         target: "_blank",
         rel: "noreferrer",
@@ -40,7 +56,7 @@ function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon, on
   return (
     <Button
       {...anchorProps}
-      anchor={anchor}
+      as={anchor ? "a" : "button"}
       foreground={color}
       hoverColor={hoverColor}
       hasIcon={icon !== undefined}
@@ -51,20 +67,5 @@ function OutlineButton({ anchor, children, color, hoverColor, hrefLink, icon, on
     </Button>
   );
 }
-
-OutlineButton.propTypes = {
-  anchor: PropTypes.bool,
-  children: PropTypes.string,
-  color: PropTypes.string,
-  hoverColor: PropTypes.string,
-  hrefLink: PropTypes.string,
-  icon: PropTypes.node,
-  onClickEvent: PropTypes.func,
-};
-
-OutlineButton.defaultProps = {
-  anchor: false,
-  color: "var(--white)",
-};
 
 export default OutlineButton;

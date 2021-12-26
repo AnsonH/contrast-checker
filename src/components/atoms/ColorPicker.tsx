@@ -1,14 +1,18 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { RgbColorPicker } from "react-colorful";
+import { RgbColor, RgbColorPicker } from "react-colorful";
 import { colord } from "colord";
-import PropTypes from "prop-types";
 import Tooltip from "./Tooltip";
 import ColorContext from "../../context/ColorContext";
 import { getColorString } from "../../utils/colorUtils";
 import { hideOnEsc } from "./tooltipPlugins";
+import { Target } from "../../types/colors.types";
 
-const PickerButton = styled.button`
+type ColorPickerProps = {
+  target: Target;
+};
+
+const PickerButton = styled.button<{ target: Target }>`
   width: 3rem;
   height: 3rem;
   background: ${(props) => (props.target === "background" ? "var(--background)" : "var(--foreground)")};
@@ -35,20 +39,20 @@ const styles = {
   buttonWrapper: {
     position: "absolute",
     left: "0.8rem",
-  },
+  } as React.CSSProperties,
   tooltipBox: {
     padding: "1rem",
     borderRadius: "0.8rem",
   },
 };
 
-function ColorPicker({ target }) {
+function ColorPicker({ target }: ColorPickerProps) {
   const { background, updateBackground, foreground, updateForeground } = useContext(ColorContext);
 
   const isBackground = target === "background";
   const targetColor = isBackground ? background : foreground;
 
-  const handlePickerChange = (color) => {
+  const handlePickerChange = (color: RgbColor) => {
     // Uses the same color format as the text input
     const inputFormat = targetColor.inputFormat;
     const inputValue = getColorString(colord(color), inputFormat);
@@ -70,15 +74,11 @@ function ColorPicker({ target }) {
       wrapperStyles={styles.buttonWrapper}
       tooltipBoxStyles={styles.tooltipBox}
       plugins={[hideOnEsc]}
-      appendTo={() => document.getElementById(`picker-root-${target}`)}
+      appendTo={() => document.getElementById(`picker-root-${target}`)!}
     >
       <PickerButton target={target} aria-label="Open color picker" />
     </Tooltip>
   );
 }
-
-ColorPicker.propTypes = {
-  target: PropTypes.oneOf(["background", "foreground"]).isRequired,
-};
 
 export default ColorPicker;

@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import Tippy from "@tippyjs/react/headless";
-import PropTypes from "prop-types";
+import { TippyProps } from "@tippyjs/react";
+
+type TooltipProps = {
+  children: React.ReactNode;
+  content: React.ReactNode;
+  tooltipBoxStyles?: React.CSSProperties;
+  wrapperStyles?: React.CSSProperties;
+} & Omit<TippyProps, "children">;
 
 const TooltipBox = styled.div`
   padding: 0.3rem 0.8rem;
@@ -54,7 +61,7 @@ const ChildrenWrapper = styled.span`
 
 // `children` - Component that triggers the tooltip
 // `wrapperStyles` - Styles applied to the wrapper that holds the trigger element
-function Tooltip({ children, content, wrapperStyles = {}, tooltipBoxStyles = {}, ...tippyProps }) {
+function Tooltip({ children, content, wrapperStyles = {}, tooltipBoxStyles = {}, ...tippyProps }: TooltipProps) {
   return (
     <Tippy
       render={(attrs) => (
@@ -69,12 +76,5 @@ function Tooltip({ children, content, wrapperStyles = {}, tooltipBoxStyles = {},
     </Tippy>
   );
 }
-
-Tooltip.propTypes = {
-  children: PropTypes.node,
-  content: PropTypes.node,
-  tooltipBoxStyles: PropTypes.object,
-  wrapperStyles: PropTypes.object,
-};
 
 export default Tooltip;

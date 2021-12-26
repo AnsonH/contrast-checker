@@ -1,10 +1,15 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { colord, getFormat } from "colord";
 import ColorContext from "../../context/ColorContext";
+import { hexToRgb } from "../../utils/colorUtils";
+import { AcceptedFormat, Target } from "../../types/colors.types";
 
-const Input = styled.input`
+type ColorTextInputProps = {
+  target: Target;
+};
+
+const Input = styled.input<{ valid: boolean }>`
   width: 85%;
   padding: 0.5rem 0.8rem 0.5rem 5.2rem;
   margin-right: 0.5rem;
@@ -25,7 +30,7 @@ const Input = styled.input`
   }
 `;
 
-const HelperText = styled.p`
+const HelperText = styled.p<{ visible: boolean }>`
   position: absolute;
   bottom: -2rem;
   color: var(--light-red);
@@ -33,19 +38,19 @@ const HelperText = styled.p`
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
 `;
 
-function ColorTextInput({ target }) {
+function ColorTextInput({ target }: ColorTextInputProps) {
   const { background, updateBackground, foreground, updateForeground } = useContext(ColorContext);
 
   const isBackground = target === "background";
   const color = isBackground ? background : foreground;
   let validInput = color.validInput;
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const input = event.target.value;
     const inputColor = colord(input);
 
-    let rgb = inputColor.toRgb();
-    let inputFormat = getFormat(input);
+    let rgb = hexToRgb(input);
+    let inputFormat = getFormat(input) as AcceptedFormat;
     validInput = inputColor.isValid();
 
     // Use values from the original color state if input is invalid
@@ -72,9 +77,5 @@ function ColorTextInput({ target }) {
     </>
   );
 }
-
-ColorTextInput.propTypes = {
-  target: PropTypes.oneOf(["background", "foreground"]).isRequired,
-};
 
 export default ColorTextInput;

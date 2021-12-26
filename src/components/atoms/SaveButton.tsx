@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MdSave } from "react-icons/md";
-import OutlineButton from "../atoms/OutlineButton";
+import OutlineButton from "./OutlineButton";
 import ColorContext from "../../context/ColorContext";
 import SaveContext from "../../context/SaveContext";
 

@@ -1,10 +1,13 @@
 import { memo } from "react";
 import styled from "styled-components";
 import { MdCheck, MdClose } from "react-icons/md";
-import PropTypes from "prop-types";
 import { bp } from "../../styles/breakpoints";
 
-const Container = styled.div`
+type RatingProps = {
+  pass: boolean;
+};
+
+const Container = styled.div<{ pass: boolean }>`
   display: flex;
   align-items: center;
   color: ${(props) => (props.pass ? "var(--green)" : "var(--light-red)")};
@@ -20,7 +23,7 @@ const Text = styled.p`
   }
 `;
 
-function Rating({ pass }) {
+function Rating({ pass }: RatingProps) {
   return (
     <Container pass={pass}>
       {pass ? <MdCheck size={28} /> : <MdClose size={28} />}
@@ -28,9 +31,5 @@ function Rating({ pass }) {
     </Container>
   );
 }
-
-Rating.propTypes = {
-  pass: PropTypes.bool.isRequired,
-};
 
 export default memo(Rating);
