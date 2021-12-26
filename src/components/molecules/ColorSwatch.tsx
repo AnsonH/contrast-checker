@@ -17,8 +17,8 @@ function ColorSwatch() {
   const { savedColors, setSavedColors } = useContext(SaveContext);
 
   // Load saved color. Every saved color stores a property called `key`, which is a timestamp
-  const handleLoad = (key) => {
-    const { background, foreground } = savedColors.find((color) => color.time === key);
+  const handleLoad = (key: number) => {
+    const { background, foreground } = savedColors.find((color) => color.time === key)!;
 
     // Do not update contrast in `updateBackground` and `updateForeground` since state update is async.
     updateBackground(background, false);
@@ -27,8 +27,8 @@ function ColorSwatch() {
   };
 
   // Delete saved color
-  const handleDelete = (key) => {
-    const color = savedColors.find((color) => color.time === key);
+  const handleDelete = (key: number) => {
+    const color = savedColors.find((color) => color.time === key)!;
     const index = savedColors.indexOf(color);
 
     // Remove the selected color object

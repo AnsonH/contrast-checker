@@ -1,7 +1,12 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { MdInfoOutline } from "react-icons/md";
 import Tooltip from "../atoms/Tooltip";
+
+type InputLabelProps = {
+  labelFor: string;
+  title: string;
+  tooltipText: string;
+};
 
 const Container = styled.div`
   margin-bottom: 0.8rem;
@@ -30,7 +35,7 @@ const tooltipWrapperStyles = {
   height: "1.8rem",
 };
 
-function InputLabel({ labelFor, title, tooltipText }) {
+function InputLabel({ labelFor, title, tooltipText }: InputLabelProps) {
   return (
     <Container>
       <Label htmlFor={labelFor}>{title}</Label>
@@ -41,17 +46,11 @@ function InputLabel({ labelFor, title, tooltipText }) {
           wrapperStyles={tooltipWrapperStyles}
           trigger="mouseenter focusin"
         >
-          <InfoIcon size={18} tabIndex="0" />
+          <InfoIcon size={18} tabIndex={0} />
         </Tooltip>
       ) : null}
     </Container>
   );
 }
-
-InputLabel.propTypes = {
-  labelFor: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  tooltipText: PropTypes.string,
-};
 
 export default InputLabel;

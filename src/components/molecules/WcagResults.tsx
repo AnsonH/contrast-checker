@@ -9,7 +9,7 @@ export default function WcagResults() {
 
   const [aaNormal, aaLarge, aaaNormal, aaaLarge] = getWcagRatings(contrast);
 
-  // Table is styled in GlobalStyles.js for faster performance
+  // Table is styled in GlobalStyles.ts for faster performance
   return (
     <table>
       <thead>
@@ -18,7 +18,7 @@ export default function WcagResults() {
           <th>Normal Text</th>
           <th>
             <Tooltip content={<p>Text of ≥18pt or ≥14pt if bold</p>} placement="bottom" trigger="mouseenter focusin">
-              <p tabIndex="0">Large Text</p>
+              <p tabIndex={0}>Large Text</p>
             </Tooltip>
           </th>
         </tr>
